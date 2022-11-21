@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Google Login Succeed";
+    bool isAuth = Context.User.Identity != null ? Context.User.Identity.IsAuthenticated : false;
+}
+
+<div class="text-center">
+
+    @if (isAuth)
+    {
+        <h1 class="display-4">Login Succeed</h1>
+    
+        <table align="center">
+            <tr>
+                <td>Name Identifier</td>
+                <td>@ViewData["nameidentifier"]</td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td>@ViewData["name"]</td>
+            </tr>
+            <tr>
+                <td>Given Name</td>
+                <td>@ViewData["givenname"]</td>
+            </tr>
+            <tr>
+                <td>Sur Name</td>
+                <td>@ViewData["surname"]</td>
+            </tr>
+            <tr>
+                <td>Email Address</td>
+                <td>@ViewData["emailaddress"]</td>
+            </tr>
+        </table>
+
+        <a class="btn btn-secondary" asp-action="GoogleLogout">Logout</a>
+    }
+    else
+    {
+        <a class="btn btn-secondary" asp-action="Index">Back to Home</a>
+    }
+
+</div>

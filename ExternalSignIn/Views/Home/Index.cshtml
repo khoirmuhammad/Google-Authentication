@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    bool isAuth = Context.User.Identity != null ? Context.User.Identity.IsAuthenticated : false;
+}
+
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    @if (isAuth)
+    {
+        <a class="btn btn-secondary" asp-action="GoogleLogout">Logout</a>
+    }
+    else
+    {
+        <a class="btn btn-danger" asp-action="GoogleLogin"><i class="fab fa-google-plus mr-2" aria-hidden="true"></i> Google Login</a>
+    }
+    
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
